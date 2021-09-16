@@ -1,5 +1,5 @@
 EXPECTED=65
-STR="AO"
+STR="OA"
 
 all:
 			as -o input.o input.s
