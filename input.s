@@ -16,18 +16,18 @@
 #exit() syscall number is 60 in linux. 0x2000001 in macos.
 
 _start:
-      mov ?, %rax                 # syscall number for read
-      mov ?, %rdi                 # where to read from: stdin
+      mov 0x2000003, %rax                 # syscall number for read
+      mov 0, %rdi                 # where to read from: stdin
       mov ?, %rsi                 # buffer adr
       mov ?, %rdx                 # length of the buffer in bytes
       syscall
 
-      mov  ?, %rax                # system call for write
-      mov  ?, %rdi                # file handle for stdout
+      mov 0x2000004, %rax                # system call for write
+      mov  1, %rdi                # file handle for stdout
       mov  ?, %rsi                # address of string to output
       mov  ?, %rdx                # number of bytes
       syscall
 
-      mov   ?, %rax               # system call for exit
+      mov 0x2000001, %rax               # system call for exit
       movb  ?, %dil               # second char in buffer -> return code
       syscall
